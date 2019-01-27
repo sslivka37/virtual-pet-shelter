@@ -67,7 +67,7 @@ public class VirtualPetShelterApp {
 			case 3:
 				System.out.println("Which pet do you want to play with?");
 				for (VirtualPet currentPet : myVirtualPetShelter.getAllPets()) {
-					System.out.println(currentPet.getPetName());
+					System.out.println(currentPet.getPetName() + " " + currentPet.getDescription());
 				}
 				String userNameSelect = input.nextLine();
 				VirtualPet userPetPlay = myVirtualPetShelter.findPet(userNameSelect);//creating a new instance of virtual pet
@@ -93,6 +93,7 @@ public class VirtualPetShelterApp {
 					myVirtualPetShelter.play(userNameSelect);
 					System.out.println("You have adopted " + userPetAdopt.getPetName()
 							+ ", take good care of them and watch out for their teeth!");
+					myVirtualPetShelter.remove(userPetAdopt);
 					myVirtualPetShelter.tickAllPets();
 				} else {
 					System.out.println("Not a valid selection, goodbye!");

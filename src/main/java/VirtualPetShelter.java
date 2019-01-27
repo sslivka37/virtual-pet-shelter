@@ -58,9 +58,7 @@ public class VirtualPetShelter {
 		}
 
 	}
-	@Override
-	public String toString() {
-		return ("" + virtualPets.keySet() + virtualPets.values()); 
+	
 	}
 
-}
+
