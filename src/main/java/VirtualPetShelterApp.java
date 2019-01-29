@@ -26,11 +26,12 @@ public class VirtualPetShelterApp {
 		System.out.println("Welcome to HP Lovecraft's Virtual Pet Shelter!");
 		System.out.println("Here are all of our adoptable pets:");
 
-		// looping through the map and displaying all of the values we want to display, may want to format this?
-		for (VirtualPet currentPet : myVirtualPetShelter.getAllPets()) {
-			System.out.println("Name: " + currentPet.getPetName() + " Hunger Level: " + currentPet.getHungerLevel()
-					+ " Thirst Level: " + currentPet.getThirstLevel() + " Happiness Level: "
-					+ currentPet.getHappinessLevel());
+		// looping through the map and displaying all of the values we want to display,
+		// may want to format this?
+		for (VirtualPet eachPet : myVirtualPetShelter.getAllPets()) {
+			System.out.println("\tName: " + eachPet.getPetName() + "\tHunger Level: " + eachPet.getHungerLevel()
+					+ " \tThirst Level: " + eachPet.getThirstLevel() + "\tHappiness Level: "
+					+ eachPet.getHappinessLevel());
 		}
 
 		// giving the user options
@@ -70,10 +71,13 @@ public class VirtualPetShelterApp {
 					System.out.println(currentPet.getPetName() + " " + currentPet.getDescription());
 				}
 				String userNameSelect = input.nextLine();
-				VirtualPet userPetPlay = myVirtualPetShelter.findPet(userNameSelect);//creating a new instance of virtual pet
-				if (currentPetCollection.contains(userPetPlay)) {   //checking to see if the current collection contains the new instance name
+				VirtualPet userPetPlaySelect = myVirtualPetShelter.findPet(userNameSelect);// creating a new instance of
+																							// virtual pet and finding
+																							// the user selection
+				if (currentPetCollection.contains(userPetPlaySelect)) { // checking to see if the current collection
+																		// contains the new instance name
 					myVirtualPetShelter.play(userNameSelect);
-					System.out.println("You play with " + userPetPlay.getPetName() + ", they look happy!");
+					System.out.println("You play with " + userPetPlaySelect.getPetName() + ", they look happy!");
 					myVirtualPetShelter.tickAllPets();
 				} else {
 					System.out.println("Not a valid selection, goodbye!");
@@ -84,16 +88,16 @@ public class VirtualPetShelterApp {
 			// picking a pet to adopt and removing them from the shelter
 			case 4:
 				System.out.println("Which pet would you like to adopt?");
-				for (VirtualPet currentPet : myVirtualPetShelter.getAllPets()) {
-					System.out.println(currentPet.getPetName());
+				for (VirtualPet eachPet : myVirtualPetShelter.getAllPets()) {
+					System.out.println(eachPet.getPetName());
 				}
 				userNameSelect = input.nextLine();
-				VirtualPet userPetAdopt = myVirtualPetShelter.findPet(userNameSelect);
-				if (currentPetCollection.contains(userPetAdopt)) {
+				VirtualPet userPetAdoptSelect = myVirtualPetShelter.findPet(userNameSelect);
+				if (currentPetCollection.contains(userPetAdoptSelect)) {
 					myVirtualPetShelter.play(userNameSelect);
-					System.out.println("You have adopted " + userPetAdopt.getPetName()
+					System.out.println("You have adopted " + userPetAdoptSelect.getPetName()
 							+ ", take good care of them and watch out for their teeth!");
-					myVirtualPetShelter.remove(userPetAdopt);
+					myVirtualPetShelter.remove(userPetAdoptSelect);
 					myVirtualPetShelter.tickAllPets();
 				} else {
 					System.out.println("Not a valid selection, goodbye!");
@@ -103,8 +107,7 @@ public class VirtualPetShelterApp {
 
 			// having the user create a pet to admit and adding pet
 			case 5:
-				System.out
-						.println("Due to some of the pets eating the other, smaller pets, we have room for new pets!");
+				System.out.println("Due to some of the pets eating the other, smaller pets, we have room for new pets!");
 				System.out.println("What is the new pet's name?");
 				userNameSelect = input.nextLine();
 				System.out.println("What is their hunger level?");
@@ -115,8 +118,8 @@ public class VirtualPetShelterApp {
 				int userHappySelect = Integer.parseInt(input.nextLine());
 				System.out.println("Give us a brief description of the pet");
 				String userDescription = input.nextLine();
-				
-				//now we add that pet to the shelter using the user input
+
+				// now we add that pet to the shelter using the user input
 				myVirtualPetShelter.add(new VirtualPet(userNameSelect, userHungerSelect, userThirstSelect,
 						userHappySelect, userDescription));
 				System.out.println("Welcome, " + myVirtualPetShelter.findPet(userNameSelect).getPetName()
@@ -127,10 +130,10 @@ public class VirtualPetShelterApp {
 			// showing the statuses of all of the pets
 			case 6:
 				System.out.println("Here are the statuses of the pets: ");
-				for (VirtualPet currentPet : myVirtualPetShelter.getAllPets()) {
-					System.out.println("Name: " + currentPet.getPetName() + " Hunger Level: "
-							+ currentPet.getHungerLevel() + " Thirst Level: " + currentPet.getThirstLevel()
-							+ " Happiness Level: " + currentPet.getHappinessLevel());
+				for (VirtualPet eachPet : myVirtualPetShelter.getAllPets()) {
+					System.out.println("\tName: " + eachPet.getPetName() + " \tHunger Level: "
+							+ eachPet.getHungerLevel() + " \tThirst Level: " + eachPet.getThirstLevel()
+							+ " \tHappiness Level: " + eachPet.getHappinessLevel());
 				}
 				break;
 
